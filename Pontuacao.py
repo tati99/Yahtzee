@@ -1,4 +1,6 @@
 def somaColuna(d):
+    d = calculaBonusSuperior(d)
+    d = calculaBonusYa(d)
     aux = 0
     for k in d:
         aux += d[k]
@@ -76,9 +78,10 @@ def calcularYahtzee(l):
     return 50
 
 def calculaBonusSuperior(dic):
-    if dic['total superior'] >= 63:
+    total = dic['ones'] +  dic['twos'] +  dic['threes'] +  dic['fours'] +  dic['fives'] +  dic['sixes']
+    if total >= 63:
         dic['bonus superior'] = 35
-    return
+    return dic
 
 def mostrarOpcoes(l,dic):
     d = dict()
