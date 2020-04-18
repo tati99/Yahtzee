@@ -5,6 +5,81 @@ def somaColuna(d):
     d['total'] = aux
     return d
 
+def calcularOnes(l): 
+    soma = 0
+    for i in l:
+        if i == 1:
+            soma += 1
+    return soma
+
+def calcularTwos(l):
+    soma = 0
+    for i in l:
+        if i == 2: 
+            soma += 2
+    return soma
+
+def calcularThrees(l): 
+    soma = 0
+    for i in l:
+        if i == 3:
+            soma += 3
+    return soma
+
+def calcularFours(l): 
+    soma = 0
+    for i in l:
+        if i == 4:
+            soma += 4
+    return soma
+
+def calcularFives(l): 
+    soma = 0
+    for i in l:
+        if i == 5:
+            soma += 5
+    return soma
+
+def calcularSixes(l): 
+    soma = 0
+    for i in l:
+        if i == 6:
+            soma += 6
+    return soma
+
+def calcularSmallStraight(l):
+    nl = []
+    l.sort()
+    nl = l.copy()
+    ant = nl[0]
+    for i in nl[1:]:
+        if ant == i:
+            nl.remove(i)
+        else:
+            ant = i
+    if nl[0]!=1 and nl[0]!=2 and nl[0]!=3:
+        return 0
+    if nl[1]!=2 and nl[1]!=3 and nl[1]!=4:
+        return 0
+    if nl[2]!=3 and nl[2]!=4 and nl[2]!=5:
+        return 0
+    if nl[3]!=4 and nl[3]!=5 and nl[3]!=6:
+        return 0
+    return 30
+
+def calcularYahtzee(l): 
+    ant = l[0]
+    for i in l[1:]:
+        if ant != i:
+            return 0
+        ant = l[i]
+    return 50
+
+def calculaBonusSuperior(dic):
+    if dic['total superior'] >= 63:
+        dic['bonus superior'] = 35
+    return
+
 def mostrarOpcoes(l,dic):
     d = dict()
     d = dic.copy()
@@ -36,48 +111,6 @@ def mostrarOpcoes(l,dic):
         d['yahtzee'] = calcularYahtzee(l)
     return d
     
-
-def calcularSmallStraight(l):
-    new_list = []
-    l.sort()
-    nl = l.copy()
-    ant = nl[0]
-    for i in nl[1:]:
-        if ant == i:
-            nl.remove(i)
-        else:
-            ant = i
-    if nl[0]!=1 and nl[0]!=2 and nl[0]!=3:
-        return 0
-    if nl[1]!=2 and nl[1]!=3 and nl[1]!=4:
-        return 0
-    if nl[2]!=3 and nl[2]!=4 and nl[2]!=5:
-        return 0
-    if nl[3]!=4 and nl[3]!=5 and nl[3]!=6:
-        return 0
-    return 30
-
-def calcularFours(l): 
-    soma = 0
-    for i in l:
-        if i == 4:
-            soma += 4
-    return soma
-
-def calcularOnes(l): 
-    soma = 0
-    for i in l:
-        if i == 1:
-            soma += 1
-    return soma
-
-def calcularYahtzee(l): 
-    ant = l[0]
-    for i in l[1:]:
-        if ant != i:
-            return 0
-        ant = l[i]
-    return 50
 
 tabela = {
      'ones':0, 
