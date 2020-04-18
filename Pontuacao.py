@@ -1,3 +1,6 @@
+__all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcularFours','calcularFives','calcularSixes','calcularSmallStraight','calcularLargeStraight',
+	   'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse','calcularYahtzee','calculaBonusSuperior','calcularBonusYa']
+
 def somaColuna(d):
     d = calculaBonusSuperior(d)
     d = calculaBonusYa(d)
@@ -78,7 +81,7 @@ def calcularYahtzee(l):
     return 50
 
 def calculaBonusSuperior(dic):
-    total = dic['ones'] +  dic['twos'] +  dic['threes'] +  dic['fours'] +  dic['fives'] +  dic['sixes']
+    total = dic['ones'] + dic['twos'] + dic['threes'] + dic['fours'] + dic['fives'] + dic['sixes']
     if total >= 63:
         dic['bonus superior'] = 35
     return dic
