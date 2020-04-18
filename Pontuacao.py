@@ -1,4 +1,3 @@
-
 def somaColuna(d):
     aux = 0
     for k in d:
@@ -72,7 +71,6 @@ def calcularOnes(l):
             soma += 1
     return soma
 
-
 def calcularYahtzee(l): 
     ant = l[0]
     for i in l[1:]:
@@ -81,17 +79,6 @@ def calcularYahtzee(l):
         ant = l[i]
     return 50
 
-def exibe(l):
-    print("---")
-    for i in l:
-        print(i)
-
-def exibe2(d):
-    print("---")
-    for i in d:
-        print(i)
-
-l = [4,4,4,4,4]
 tabela = {
      'ones':0, 
      'twos':0,
@@ -99,7 +86,9 @@ tabela = {
      'fours':0,
      'fives':0,
      'sixes':0,
+     'total superior':0,
      'bonus superior':0,
+     'total bonus':0,
      'three of a kind':0,
      'four of a kind':0,
      'full house':0,
@@ -110,5 +99,3 @@ tabela = {
      'bonus yahtzee':0,
      'total':0
      }
-r = mostrarOpcoes(l,tabela)
-print(r)
