@@ -1,5 +1,7 @@
-__all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcularFours','calcularFives','calcularSixes','calcularSmallStraight','calcularLargeStraight',
-	   'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse','calcularYahtzee','calculaBonusSuperior','calcularBonusYa']
+__all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcularFours',
+            'calcularFives','calcularSixes','calcularSmallStraight','calcularLargeStraight',
+	        'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse',
+            'calcularYahtzee','calculaBonusSuperior','calcularBonusYa', 'mostrarOpcoes']
 
 def somaColuna(d):
     d = calculaBonusSuperior(d)
