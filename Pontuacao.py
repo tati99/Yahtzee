@@ -88,6 +88,17 @@ def calcularThreeOfAKind(lista_dados):
             return sum(lista_dados)
     return 0
 
+def calcularLargeStraight(lista_dados):
+    lista_dados.sort()
+    aux = lista_dados.copy()
+    if aux[0] != 1 and aux[0] != 2: return 0
+    elif aux[1] != 2 and aux[1] != 3: return 0
+    elif aux[2] != 3 and aux[2] != 4: return 0
+    elif aux[3] != 4 and aux[3] != 5: return 0
+    elif aux[4] != 5 and aux[4] != 6: return 0
+    return 30
+
+
 def calcularFourOfAKind(lista_dados):
     for element in lista_dados:
         if (lista_dados.count(element)) == 4:
