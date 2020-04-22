@@ -96,7 +96,7 @@ def calcularLargeStraight(lista_dados):
     elif aux[2] != 3 and aux[2] != 4: return 0
     elif aux[3] != 4 and aux[3] != 5: return 0
     elif aux[4] != 5 and aux[4] != 6: return 0
-    return 30
+    return 40
 
 
 def calcularFourOfAKind(lista_dados):
