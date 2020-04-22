@@ -80,6 +80,28 @@ def calcularYahtzee(l):
         ant = l[i]
     return 50
 
+def calcularThreeOfAKind(lista_dados):
+    for element in lista_dados:
+        if (lista_dados.count(element)) == 3:
+            return sum(lista_dados)
+        else:
+            return 0
+
+def calcularFourOfAKind(lista_dados):
+    for element in lista_dados:
+        if (lista_dados.count(element)) == 4:
+            return sum(lista_dados)
+        else:
+            return 0
+
+def calcularLargeStraight(lista_dados):
+    if lista_dados[0] == 1 and lista_dados[1] == 2 and lista_dados[2] == 3 and lista_dados[3] == 4 and lista_dados[4] == 5:
+        return 40
+    elif lista_dados[0] == 2 and lista_dados[1] == 3 and lista_dados[2] == 4 and lista_dados[3] == 5 and lista_dados[4] == 6:
+        return 40
+    else:
+        return 0
+
 def calculaBonusSuperior(dic):
     total = dic['ones'] + dic['twos'] + dic['threes'] + dic['fours'] + dic['fives'] + dic['sixes']
     if total >= 63:
