@@ -1,3 +1,4 @@
+__all__ = ['jogar_Dados']
 import random
 '''
 from XXXX import *
@@ -9,13 +10,11 @@ def soma_Dados():
 def proximo_Jogador():
 
 def manter_Dados():
-
-def jogar_Dados():
 '''
 
-lista_dados = [0,0,0,0,0]
-
 def jogar_Dados(dados):
-    for i in range(5):
+    for i,k in enumerate(dados):
         dados[i] = random.randint(1,6)
-    return lista_dados
+    return dados
+
+

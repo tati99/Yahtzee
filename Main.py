@@ -1,22 +1,36 @@
-'''
----> Essa é a main de testes
-'''
+from Pontuacao import *
+from Jogada import *
+
+def exibe(d):
+     for k in d:
+        print(k,':', d[k])
+
+
+def main(tabela):
+     d = []
+     dados = [0,0,0,0,0]
+     d = jogar_Dados(dados)
+     tabela = mostrarOpcoes(d,tabela)
+     exibe(tabela)
 
 tabela = {
-     'ones':0, 
-     'twos':0,
-     'threes':0,
-     'fours':0,
-     'fives':0,
-     'sixes':0,
-     'bonus superior':0,
-     'three of a kind':0,
-     'four of a kind':0,
-     'full house':0,
-     'small straight':0,
-     'large straight':0,
-     'chance':0,
-     'yahtzee':0,
-     'bonus yahtzee':0,
-     'total':0
+     'ones':None, 
+     'twos':None,
+     'threes':None,
+     'fours':None,
+     'fives':None,
+     'sixes':None,
+     'bonus superior':None,
+     'three of a kind':None,
+     'four of a kind':None,
+     'full house':None,
+     'small straight':None,
+     'large straight':None,
+     'chance':None,
+     'yahtzee':None,
+     'bonus yahtzee':None,
+     'total':None
      }
+
+main(tabela)
+
