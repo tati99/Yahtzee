@@ -114,8 +114,7 @@ def calculaBonusSuperior(dic):
 def calcularBonusYa(dic):
     if(dic['calcularYahtzee'] !=0)
         return 100
-    else
-        return 0
+    return 0
 
 def calcularFullHouse(lista_dados):   
     for trio in lista_dados:
@@ -133,29 +132,29 @@ def mostrarOpcoes(l,dic):
     d = dic.copy()
     if d['ones'] == 0:
         d['ones'] = calcularOnes(l)
-    if d['twos'] == 0:
+    elif d['twos'] == 0:
         d['twos'] = calcularTwos(l)
-    if d['threes'] == 0:
+    elif d['threes'] == 0:
         d['threes'] = calcularThrees(l)
-    if d['fours'] == 0:
+    elif d['fours'] == 0:
         d['fours'] = calcularFours(l)
-    if d['fives'] == 0:
+    elif d['fives'] == 0:
         d['fives'] = calcularFives(l)
-    if d['sixes'] == 0:
+    elif d['sixes'] == 0:
         d['sixes'] = calcularSixes(l)
-    if d['three of a kind'] == 0:
+    elif d['three of a kind'] == 0:
         d['three of a kind'] = calcularThreeOfAKind(l)
-    if d['four of a kind'] == 0:
+    elif d['four of a kind'] == 0:
         d['four of a kind'] = calcularFourOfAKind(l)
-    if d['full house'] == 0:
+    elif d['full house'] == 0:
         d['full house'] = calcularFullHouse(l)
-    if d['small straight'] == 0:
+    elif d['small straight'] == 0:
         d['small straight'] = calcularSmallStraight(l)
-    if d['large straight'] == 0:
+    elif d['large straight'] == 0:
         d['large straight'] = calcularLargeStraight(l)
-    if d['chance'] == 0:
+    elif d['chance'] == 0:
         d['chance'] = calcularChance(l)
-    if d['yahtzee'] == 0:
+    elif d['yahtzee'] == 0:
         d['yahtzee'] = calcularYahtzee(l)
     return d
     
