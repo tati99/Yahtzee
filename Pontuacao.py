@@ -3,14 +3,6 @@ __all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcular
 	        'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse',
             'calcularYahtzee','calculaBonusSuperior','calcularBonusYa', 'mostrarOpcoes']
 
-def somaColuna(d):
-    d = calculaBonusSuperior(d)
-    d = calculaBonusYa(d)
-    aux = 0
-    for k in d:
-        aux += d[k]
-    d['total'] = aux
-    return d
 
 def calcularOnes(l): 
     soma = 0
@@ -115,6 +107,15 @@ def calcularBonusYa(dic):
     if(dic['calcularYahtzee'] !=0)
         return 100
     return 0
+
+def somaColuna(d):
+    d = calculaBonusSuperior(d)
+    d = calculaBonusYa(d)
+    aux = 0
+    for k in d:
+        aux += d[k]
+    d['total'] = aux
+    return d
 
 def calcularFullHouse(lista_dados):   
     for trio in lista_dados:
