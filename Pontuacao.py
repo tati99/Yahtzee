@@ -75,13 +75,11 @@ def calcularSmallStraight(l):
     return 30
 
 def calcularYahtzee(l):
-    global _numYah
     ant = l[0]
     for i in l[1:]:
         if ant != i:
             return 0
         ant = l[i]
-    _numYah += 1
     return 50
 
 def calcularThreeOfAKind(lista_dados):
