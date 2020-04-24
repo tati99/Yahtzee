@@ -74,12 +74,14 @@ def calcularSmallStraight(l):
         return 0
     return 30
 
-def calcularYahtzee(l): 
+def calcularYahtzee(l):
+    global _numYah
     ant = l[0]
     for i in l[1:]:
         if ant != i:
             return 0
         ant = l[i]
+    _numYah += 1
     return 50
 
 def calcularThreeOfAKind(lista_dados):
@@ -110,6 +112,23 @@ def calculaBonusSuperior(dic):
     if total >= 63:
         dic['bonus superior'] = 35
     return dic
+
+def calcularBonusYa(dic):
+    if(dic['calcularYahtzee'] !=0)
+        return 100
+    else
+        return 0
+
+def calcularFullHouse(lista_dados):   
+    for trio in lista_dados:
+        if (lista_dados.count(trio)) == 3:
+            for dupla in lista_dados:
+                if (lista_dados.count(dupla)) == 2 and dupla != trio:
+                    return 25
+    return 0
+
+def calcularChance(lista_dados):
+    return sum(lista_dados)
 
 def mostrarOpcoes(l,dic):
     d = dict()
