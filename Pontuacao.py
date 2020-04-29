@@ -47,13 +47,13 @@ def calcularSixes(l):
 
 def calcularThreeOfAKind(lista_dados):
     for element in lista_dados:
-        if (lista_dados.count(element)) == 3:
+        if (lista_dados.count(element)) >= 3:
             return sum(lista_dados)
     return 0
 
 def calcularFourOfAKind(lista_dados):
     for element in lista_dados:
-        if (lista_dados.count(element)) == 4:
+        if (lista_dados.count(element)) >= 4:
             return sum(lista_dados)
     return 0
 
@@ -66,9 +66,8 @@ def calcularFullHouse(lista_dados):
     return 0
 
 def calcularSmallStraight(l):
-    nl = []
-    l.sort()
     nl = l.copy()
+    nl.sort()
     ant = nl[0]
     for i in nl[1:]:
         if ant == i:
@@ -77,30 +76,38 @@ def calcularSmallStraight(l):
             ant = i
     if len(nl) < 4:
         return 0
-    if nl[0]!=1 and nl[0]!=2 and nl[0]!=3:
-        return 0
-    if nl[1]!=2 and nl[1]!=3 and nl[1]!=4:
-        return 0
-    if nl[2]!=3 and nl[2]!=4 and nl[2]!=5:
-        return 0
-    if nl[3]!=4 and nl[3]!=5 and nl[3]!=6:
-        return 0
-    return 30
+    if nl[0] == 1:
+        if nl[1] == 2:
+            if nl[2] == 3:
+                if nl[3] == 4:
+                    return 30
+    if nl[0] == 2:
+        if nl[1] == 3:
+            if nl[2] == 4:
+                if nl[3] == 5:
+                    return 30
+    if nl[0] == 3:
+        if nl[1] == 4:
+            if nl[2] == 5:
+                if nl[3] == 6:
+                    return 30
+    return 0
 
 def calcularLargeStraight(lista_dados):
     lista_dados.sort()
-    aux = lista_dados.copy()
-    if aux[0] != 1 and aux[0] != 2: 
-        return 0
-    if aux[1] != 2 and aux[1] != 3: 
-        return 0
-    if aux[2] != 3 and aux[2] != 4: 
-        return 0
-    if aux[3] != 4 and aux[3] != 5: 
-        return 0
-    if aux[4] != 5 and aux[4] != 6: 
-        return 0
-    return 40
+    if lista_dados[0] == 1:
+        if lista_dados[1] == 2:
+            if lista_dados[2] == 3:
+                if lista_dados[3] == 4:
+                    if lista_dados[4] == 5:
+                        return 40
+    if lista_dados[0] == 2:
+        if lista_dados[1] == 3:
+            if lista_dados[2] == 4:
+                if lista_dados[3] == 5:
+                    if lista_dados[4] == 6:
+                        return 40  
+    return 0
 
 def calcularYahtzee(l):
     ant = l[0]
@@ -109,6 +116,9 @@ def calcularYahtzee(l):
             return 0
         ant = i
     return 50
+
+def calcularChance(lista_dados):
+    return sum(lista_dados)
 
 def calcularBonusYa(l):
     if calcularYahtzee(l) == 50:
@@ -119,13 +129,13 @@ def calculaBonusSuperior(dic):
     total = dic['ones'] + dic['twos'] + dic['threes'] + dic['fours'] + dic['fives'] + dic['sixes']
     if total >= 63:
         dic['bonus superior'] = 35
+    else:
+        dic['bonus superior'] = 0
     return dic
-
-def calcularChance(lista_dados):
-    return sum(lista_dados)
 
 def somaColuna(d):
     d = calculaBonusSuperior(d)
+    d['total'] = 0
     aux = 0
     for k in d:
         aux += d[k]
