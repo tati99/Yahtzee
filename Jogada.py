@@ -1,8 +1,8 @@
-__all__ = ['jogar_Dados']
 import random
-'''
-from XXXX import *
+from tkinter import *
+__all__ = ['jogar_Dados']
 
+'''
 def selecionar_Jogada():
 
 def soma_Dados():

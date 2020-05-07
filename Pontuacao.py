@@ -123,7 +123,7 @@ def calcularChance(lista_dados):
 def calcularBonusYa(l):
     if calcularYahtzee(l) == 50:
         return 100
-    return 0
+    return -1
 
 def calculaBonusSuperior(dic):
     total = dic['ones'] + dic['twos'] + dic['threes'] + dic['fours'] + dic['fives'] + dic['sixes']
@@ -147,31 +147,57 @@ def mostrarOpcoes(l,dic):
     d = dic.copy()
     if d['ones'] == None:
         d['ones'] = calcularOnes(l)
+    else:
+        d['ones'] = -1
     if d['twos'] == None:
         d['twos'] = calcularTwos(l)
+    else:
+        d['twos'] = -1
     if d['threes'] == None:
         d['threes'] = calcularThrees(l)
+    else:
+        d['threes'] = -1
     if d['fours'] == None:
         d['fours'] = calcularFours(l)
+    else:
+        d['fours'] = -1
     if d['fives'] == None:
         d['fives'] = calcularFives(l)
+    else:
+        d['fives'] = -1
     if d['sixes'] == None:
         d['sixes'] = calcularSixes(l)
+    else:
+        d['sixes'] = -1
     if d['three of a kind'] == None:
         d['three of a kind'] = calcularThreeOfAKind(l)
+    else:
+        d['theree of a kind'] = -1
     if d['four of a kind'] == None:
         d['four of a kind'] = calcularFourOfAKind(l)
+    else:
+        d['four of a kind'] = -1
     if d['full house'] == None:
         d['full house'] = calcularFullHouse(l)
+    else:
+        d['full house'] = -1
     if d['small straight'] == None:
         d['small straight'] = calcularSmallStraight(l)
+    else:
+        d['small straight'] = -1
     if d['large straight'] == None:
         d['large straight'] = calcularLargeStraight(l)
+    else:
+        d['large straight'] = -1
     if d['chance'] == None:
         d['chance'] = calcularChance(l)
+    else:
+        d['chance'] = -1
     if d['yahtzee'] == None:
         d['yahtzee'] = calcularYahtzee(l)
-    if d['yahtzee'] == 50:
+    else:
+        d['yahtzee'] = -1
+    if d['yahtzee'] == -1:
         d['bonus yahtzee'] = calcularBonusYa(l)
     return d
     
