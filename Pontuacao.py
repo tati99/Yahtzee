@@ -172,7 +172,7 @@ def mostrarOpcoes(l,dic):
     if d['three of a kind'] == None:
         d['three of a kind'] = calcularThreeOfAKind(l)
     else:
-        d['theree of a kind'] = -1
+        d['three of a kind'] = -1
     if d['four of a kind'] == None:
         d['four of a kind'] = calcularFourOfAKind(l)
     else:

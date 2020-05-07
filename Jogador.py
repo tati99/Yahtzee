@@ -21,7 +21,7 @@ def criaJogador():
      'small straight':None,
      'large straight':None,
      'chance':None,
-     'yahtzee':50,
+     'yahtzee':None,
      'bonus yahtzee':None,
      'total':None
      }

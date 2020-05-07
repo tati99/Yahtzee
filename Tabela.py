@@ -4,8 +4,10 @@ __all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes']
 
 but = []
 name = []
+sp = []
 w1 = 0
 dic = dict()
+dic_aux = dict()
 
 def desenhaTabela(root, d, w):
    i = 0
@@ -26,24 +28,50 @@ def criaOpcoes(d, root, w, tabela):
    global w1 
    global dic
    global name
+   global dic_aux
+   global sp 
+   sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
    dic = tabela.copy()
+   dic_aux = d.copy()
    w1 = w
    h = 1
+   z = 0
+   j = 0
    for i in d:
-      if(d[i]!=-1 and d[i]!=None):
-         b = Button(root, width=2, height=2, text=str(d[i]), fg='red', command= lambda: buttonClick)
-         but.append(b)
-         b.place(x=683, y=h)
-         b.bind("<Button-1>", buttonClick)
-         name.append(i)
-      h += 43.75
+      if (d[i]!=0 and d[i]!=-1 and d[i]!=None):
+         z += 1
+   if (z > 0):
+      for i in d:
+         if(d[i]!=-1 and d[i]!=None and d[i]!=0):
+            b = Button(root, width=2, height=2, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            but.append(b)
+            b.place(x=683, y=h)
+            b.bind("<Button-1>", buttonClick)
+            name.append(i)
+            sp[j] = -1
+         h += 43.75
+         j += 1
+   else:
+      for i in d:
+         if(d[i]!=-1 and d[i]!=None):
+            b = Button(root, width=2, height=2, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            but.append(b)
+            b.place(x=683, y=h)
+            b.bind("<Button-1>", buttonClick)
+            name.append(i)
+            sp[j] = -1
+         h += 43.75
+         j += 1
    return
 
 def buttonClick(event):
    global but
    global name
+   global dic_aux
+   global sp
    j = 0
    i = 0
+   k = 0
    for button in but:
       if button is event.widget:
          n = j
@@ -53,12 +81,13 @@ def buttonClick(event):
       but[i].destroy()
       i += 1
    p = n
-   if (name[n]!= 'ones' and name[n]!= 'twos' and name[n]!= 'threes' and name[n]!= 'fours' and name[n]!= 'fives' and name[n]!= 'sixes'):
-      n += 1
-   if (name[p]== 'bonus yahtzee'):
-      n += 1
-   w1.create_text(695, (2*n+1)*21.875, text = s)
+   for i in dic_aux:
+      if (i == name[p]):
+         break
+      k += 1
+   w1.create_text(695, (2*k+1)*21.875, text = s)
    preencheTabela(name[p], s)
+
 
 def preencheTabela(v, s):
    dic[v] = int(s)
