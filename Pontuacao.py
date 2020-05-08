@@ -189,15 +189,15 @@ def mostrarOpcoes(l,dic):
         d['large straight'] = calcularLargeStraight(l)
     else:
         d['large straight'] = -1
-    if d['chance'] == None:
-        d['chance'] = calcularChance(l)
-    else:
-        d['chance'] = -1
     if d['yahtzee'] == None:
         d['yahtzee'] = calcularYahtzee(l)
     else:
         d['yahtzee'] = -1
-    if d['yahtzee'] == -1:
+    if d['chance'] == None:
+        d['chance'] = calcularChance(l)
+    else:
+        d['chance'] = -1
+    if dic['yahtzee'] == 50:
         d['bonus yahtzee'] = calcularBonusYa(l)
     return d
     

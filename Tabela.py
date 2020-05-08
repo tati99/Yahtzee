@@ -11,15 +11,17 @@ dic_aux = dict()
 
 def desenhaTabela(root, d, w):
    i = 0
-   h = 0
+   h = 50
    n = 0
-   w.create_rectangle(600, 0, 681, 768)
+   w.create_rectangle(600, 50, 681, 674)
    while(i < 17):
-      h += 43.75
       w.create_line(600, h, 681, h)
+      h += 39
       i += 1
    for i in d:
-      w.create_text(640, (2*n+1)*21.875, text = i)
+      s = i
+      s = s.capitalize()
+      w.create_text(640, 50+(2*n+1)*19.5, text = s)
       n += 1
    return 
 
@@ -34,7 +36,7 @@ def criaOpcoes(d, root, w, tabela):
    dic = tabela.copy()
    dic_aux = d.copy()
    w1 = w
-   h = 1
+   h = 58
    z = 0
    j = 0
    for i in d:
@@ -43,24 +45,24 @@ def criaOpcoes(d, root, w, tabela):
    if (z > 0):
       for i in d:
          if(d[i]!=-1 and d[i]!=None and d[i]!=0):
-            b = Button(root, width=2, height=2, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', command= lambda: buttonClick)
             but.append(b)
-            b.place(x=683, y=h)
+            b.place(x=692, y=h)
             b.bind("<Button-1>", buttonClick)
             name.append(i)
             sp[j] = -1
-         h += 43.75
+         h += 39
          j += 1
    else:
       for i in d:
          if(d[i]!=-1 and d[i]!=None):
-            b = Button(root, width=2, height=2, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', command= lambda: buttonClick)
             but.append(b)
-            b.place(x=683, y=h)
+            b.place(x=692, y=h)
             b.bind("<Button-1>", buttonClick)
             name.append(i)
             sp[j] = -1
-         h += 43.75
+         h += 39
          j += 1
    return
 
@@ -85,7 +87,7 @@ def buttonClick(event):
       if (i == name[p]):
          break
       k += 1
-   w1.create_text(695, (2*k+1)*21.875, text = s)
+   w1.create_text(714, 50+(2*k+1)*19.5, text = s)
    preencheTabela(name[p], s)
 
 

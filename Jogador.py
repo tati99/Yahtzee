@@ -28,11 +28,11 @@ def criaJogador():
     return tabela
 
 def desenhaJogador(root, w):
-    h = 0
+    h = 50
     i = 0
-    w.create_rectangle(681, 0, 710, 700)
-    while(i < 17):
-        h += 43.75
-        w.create_line(681, h, 710, h)
+    w.create_rectangle(681, 15, 750, 674)
+    while(i < 16):
+        w.create_line(681, h, 750, h)
+        h += 39
         i += 1
     return 0

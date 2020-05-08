@@ -9,7 +9,7 @@ def main():
      tabela = criaJogador()
      root = window()
      w = confCanvas()
-     confCanvas()
+     root.title("Yahtzee")
      desenhaTabela(root,tabela,w)
      desenhaJogador(root, w)
      dados = [0,0,0,0,0]

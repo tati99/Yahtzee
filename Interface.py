@@ -1,6 +1,6 @@
 from tkinter import *
 
-__all__ = ['confCanvas', 'window']
+__all__ = ['confCanvas', 'window', 'confTela']
 
 root = 0
 
@@ -15,6 +15,9 @@ def confCanvas():
     w = Canvas(root, width=screen_width, height=screen_height)
     w.pack()
     return w
+
+def confTela():
+    return 0
 
 '''
 def alterar_Tela():
