@@ -197,7 +197,11 @@ def mostrarOpcoes(l,dic):
         d['chance'] = calcularChance(l)
     else:
         d['chance'] = -1
-    if dic['yahtzee'] == 50:
+    if dic['yahtzee'] == 50 and d['bonus yahtzee']==None:
         d['bonus yahtzee'] = calcularBonusYa(l)
+    elif dic['yahtzee'] == 50 and (d['bonus yahtzee']==100 or d['bonus yahtzee']==200):
+        d['bonus yahtzee'] += calcularBonusYa(l)  
+    else:
+        d['bonus yahtzee'] = -1  
     return d
     

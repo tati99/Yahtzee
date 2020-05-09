@@ -5,18 +5,22 @@ from Jogada import *
 from Pontuacao import *
 from Jogador import *
 
+#escolherNome()
+root = window()
+w = confCanvas()
+root.title("Yahtzee")
+
 def main():
+     global root
+     global w
      tabela = criaJogador()
-     root = window()
-     w = confCanvas()
-     root.title("Yahtzee")
-     desenhaTabela(root,tabela,w)
+     init(root, w)
+     desenhaTabela(tabela)
      desenhaJogador(root, w)
-     dados = [0,0,0,0,0]
-     dados = jogar_Dados(dados)
+     dados = jogar_Dados()
      print(dados)
      dic = mostrarOpcoes(dados, tabela)
-     criaOpcoes(dic, root, w, tabela)
+     criaOpcoes(dic,tabela)
      root.mainloop()
      return
 

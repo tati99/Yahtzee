@@ -1,15 +1,24 @@
 from tkinter import *
 
-__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes']
+__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'init']
 
 but = []
 name = []
 sp = []
-w1 = 0
 dic = dict()
 dic_aux = dict()
+root = 0
+w = 0
 
-def desenhaTabela(root, d, w):
+def init(window, ca):
+   global root
+   global w
+   root = window
+   w = ca
+
+def desenhaTabela(d):
+   global w
+   global root
    i = 0
    h = 50
    n = 0
@@ -25,17 +34,16 @@ def desenhaTabela(root, d, w):
       n += 1
    return 
 
-def criaOpcoes(d, root, w, tabela):
+def criaOpcoes(d,tabela):
    global but
-   global w1 
    global dic
    global name
    global dic_aux
-   global sp 
+   global sp
+   global root 
    sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
    dic = tabela.copy()
    dic_aux = d.copy()
-   w1 = w
    h = 58
    z = 0
    j = 0
@@ -45,7 +53,7 @@ def criaOpcoes(d, root, w, tabela):
    if (z > 0):
       for i in d:
          if(d[i]!=-1 and d[i]!=None and d[i]!=0):
-            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', bg='white',command= buttonClick)
             but.append(b)
             b.place(x=692, y=h)
             b.bind("<Button-1>", buttonClick)
@@ -56,7 +64,7 @@ def criaOpcoes(d, root, w, tabela):
    else:
       for i in d:
          if(d[i]!=-1 and d[i]!=None):
-            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', command= lambda: buttonClick)
+            b = Button(root, width=5, height=1, text=str(d[i]), fg='red', bg='white', command= buttonClick)
             but.append(b)
             b.place(x=692, y=h)
             b.bind("<Button-1>", buttonClick)
@@ -71,6 +79,8 @@ def buttonClick(event):
    global name
    global dic_aux
    global sp
+   global dic
+   global w
    j = 0
    i = 0
    k = 0
@@ -87,13 +97,39 @@ def buttonClick(event):
       if (i == name[p]):
          break
       k += 1
-   w1.create_text(714, 50+(2*k+1)*19.5, text = s)
+   w.create_text(714, 50+(2*k+1)*19.5, text = s)
    preencheTabela(name[p], s)
-
+   if (s=='100' or s =='200' or s=='300'):
+      joker()
 
 def preencheTabela(v, s):
    dic[v] = int(s)
    return dic
+
+def joker():
+   global sp
+   dic_aux2 = dict()
+   dic_aux2 = dic_aux.copy()
+   dic_aux2['bonus yahtzee'] = -1
+   for i in dic_aux2:
+      if dic_aux2[i]!=None and dic_aux2[i]!=0 and dic_aux2[i]!=-1:
+         break
+   for i,j in enumerate(sp):
+      if j==-1:
+         break
+   if i<7:
+      dic_aux2['three of a kind'] = -1
+      dic_aux2['four of a kind'] = -1
+      dic_aux2['chance'] = -1
+   else:
+      dic_aux2[i] = -1
+   criaOpcoes(dic_aux2,dic)
+   
+      
+
+
+   
+
 
 
 

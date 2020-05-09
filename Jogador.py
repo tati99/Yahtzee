@@ -1,10 +1,30 @@
 from tkinter import *
 
-__all__ = ['desenhaJogador', 'criaJogador']
+__all__ = ['desenhaJogador', 'criaJogador', 'escolherNome']
 
-'''
+jogador = []
+e1 = 0
+s = 0
 def escolherNome():
-'''
+    global e1
+    master = Tk()
+    e = Label(master, text="Nome")
+    e.place(x=50,y=100)
+    e1 = Entry(master)
+    e1.place(x=100,y=100)
+    b1 = Button(master,text='Play',command=master.quit)
+    b1.place(x=100,y=130)
+    add = Button(master,text='Add',command=entrada)
+    add.place(x=220,y=97)
+    master.mainloop()
+    return
+
+def entrada():
+    global e1
+    global jogador
+    global s
+    s = e1.get()
+    s = s[0:10]
 
 def criaJogador():
     tabela = {
@@ -28,9 +48,11 @@ def criaJogador():
     return tabela
 
 def desenhaJogador(root, w):
+    global s
     h = 50
     i = 0
     w.create_rectangle(681, 15, 750, 674)
+    w.create_text(692,35,text=s)
     while(i < 16):
         w.create_line(681, h, 750, h)
         h += 39
