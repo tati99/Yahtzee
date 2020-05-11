@@ -1,6 +1,6 @@
 from tkinter import *
 
-__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'init']
+__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'init', 'desenhaPontos']
 
 but = []
 name = []
@@ -16,13 +16,22 @@ def init(window, ca):
    root = window
    w = ca
 
+def desenhaPontos(d):
+   global w 
+   global root
+   k = 0
+   for i in d:
+      if d[i] != None:
+         w.create_text(714, 50+(2*k+1)*19.5, text = str(d[i]))
+      k += 1
+
 def desenhaTabela(d):
    global w
    global root
    i = 0
    h = 50
    n = 0
-   w.create_rectangle(600, 50, 681, 674)
+   w.create_rectangle(600, 50, 681, 674, fill='white')
    while(i < 17):
       w.create_line(600, h, 681, h)
       h += 39
@@ -84,6 +93,7 @@ def buttonClick(event):
    j = 0
    i = 0
    k = 0
+   dic_atu = dict()
    for button in but:
       if button is event.widget:
          n = j
@@ -98,10 +108,10 @@ def buttonClick(event):
          break
       k += 1
    w.create_text(714, 50+(2*k+1)*19.5, text = s)
-   preencheTabela(name[p], s)
+   dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
-
+   
 def preencheTabela(v, s):
    dic[v] = int(s)
    return dic

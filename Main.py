@@ -5,7 +5,7 @@ from Jogada import *
 from Pontuacao import *
 from Jogador import *
 
-#escolherNome()
+escolherNome()
 root = window()
 w = confCanvas()
 root.title("Yahtzee")
@@ -15,6 +15,7 @@ def main():
      global w
      tabela = criaJogador()
      init(root, w)
+     w.create_rectangle(20,13,1338,687, fill='green')
      desenhaTabela(tabela)
      desenhaJogador(root, w)
      dados = jogar_Dados()
