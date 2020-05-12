@@ -1,5 +1,6 @@
 import random
 from tkinter import *
+
 __all__ = ['jogar_Dados']
 
 '''

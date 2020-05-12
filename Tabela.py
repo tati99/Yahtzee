@@ -1,4 +1,5 @@
 from tkinter import *
+from Pontuacao import *
 
 __all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'init', 'desenhaPontos']
 
@@ -9,6 +10,7 @@ dic = dict()
 dic_aux = dict()
 root = 0
 w = 0
+cont = 0
 
 def init(window, ca):
    global root
@@ -90,6 +92,7 @@ def buttonClick(event):
    global sp
    global dic
    global w
+   global cont
    j = 0
    i = 0
    k = 0
@@ -111,7 +114,15 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
-   
+   mostrarOpcoes(dic_atu)
+   dic2 = mostrarOpcoes(dic_atu)
+   criaOpcoes(dic2,dic)
+   '''
+   l = jogar_Dados()
+   print(l)
+   dic2 = mostrarOpcoes(l, dic_atu)
+   criaOpcoes(dic2,dic)
+   '''
 def preencheTabela(v, s):
    dic[v] = int(s)
    return dic
@@ -135,9 +146,6 @@ def joker():
       dic_aux2[i] = -1
    criaOpcoes(dic_aux2,dic)
    
-      
-
-
    
 
 

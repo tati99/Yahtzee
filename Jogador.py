@@ -1,6 +1,7 @@
 from tkinter import *
+from Tabela import *
 
-__all__ = ['desenhaJogador', 'criaJogador', 'escolherNome']
+__all__ = ['desenhaJogador', 'criaJogador', 'escolherNome', 'jogaJogador']
 
 jogador = []
 e1 = 0
@@ -19,6 +20,9 @@ def escolherNome():
     master.mainloop()
     return
 
+def jogaJogador():
+    return 0
+
 def entrada():
     global e1
     global jogador
@@ -31,14 +35,14 @@ def criaJogador():
     tabela = {
      'ones':None, 
      'twos':None,
-     'threes':15,
+     'threes':None,
      'fours':None,
      'fives':None,
      'sixes':None,
      'bonus superior':None,
      'three of a kind':None,
      'four of a kind':None,
-     'full house':25,
+     'full house':None,
      'small straight':None,
      'large straight':None,
      'chance':None,

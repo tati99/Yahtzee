@@ -1,3 +1,5 @@
+from Jogada import *
+
 __all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcularFours',
             'calcularFives','calcularSixes','calcularSmallStraight','calcularLargeStraight',
 	        'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse',
@@ -142,7 +144,8 @@ def somaColuna(d):
     d['total'] = aux
     return d
 
-def mostrarOpcoes(l,dic):
+def mostrarOpcoes(dic):
+    l = jogar_Dados()
     d = dict()
     d = dic.copy()
     if d['ones'] == None:
@@ -203,5 +206,6 @@ def mostrarOpcoes(l,dic):
         d['bonus yahtzee'] += calcularBonusYa(l)  
     else:
         d['bonus yahtzee'] = -1  
+    print(l)
     return d
     

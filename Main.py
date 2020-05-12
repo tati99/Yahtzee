@@ -18,9 +18,9 @@ def main():
      w.create_rectangle(20,13,1338,687, fill='green')
      desenhaTabela(tabela)
      desenhaJogador(root, w)
-     dados = jogar_Dados()
-     print(dados)
-     dic = mostrarOpcoes(dados, tabela)
+     #dados = jogar_Dados()
+     #print("dados", dados)
+     dic = mostrarOpcoes(tabela)
      criaOpcoes(dic,tabela)
      root.mainloop()
      return
