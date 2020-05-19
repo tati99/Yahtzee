@@ -21,7 +21,8 @@ def escolherNome():
     return
 
 def jogaJogador():
-    return 0
+    tabela = criaJogador()
+    criaOpcoes(tabela)
 
 def entrada():
     global e1

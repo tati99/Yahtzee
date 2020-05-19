@@ -146,6 +146,7 @@ def somaColuna(d):
 
 def mostrarOpcoes(dic):
     l = jogar_Dados()
+    print(l)
     d = dict()
     d = dic.copy()
     if d['ones'] == None:
@@ -206,6 +207,5 @@ def mostrarOpcoes(dic):
         d['bonus yahtzee'] += calcularBonusYa(l)  
     else:
         d['bonus yahtzee'] = -1  
-    print(l)
     return d
     

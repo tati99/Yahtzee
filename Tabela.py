@@ -45,7 +45,7 @@ def desenhaTabela(d):
       n += 1
    return 
 
-def criaOpcoes(d,tabela):
+def criaOpcoes(tabela):
    global but
    global dic
    global name
@@ -54,6 +54,7 @@ def criaOpcoes(d,tabela):
    global root 
    sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
    dic = tabela.copy()
+   d = mostrarOpcoes(tabela)
    dic_aux = d.copy()
    h = 58
    z = 0
@@ -114,9 +115,9 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
-   mostrarOpcoes(dic_atu)
-   dic2 = mostrarOpcoes(dic_atu)
-   criaOpcoes(dic2,dic)
+   #mostrarOpcoes(dic_atu)
+   #dic2 = mostrarOpcoes(dic_atu)
+   criaOpcoes(dic_atu)
    '''
    l = jogar_Dados()
    print(l)

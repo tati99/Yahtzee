@@ -18,10 +18,9 @@ def main():
      w.create_rectangle(20,13,1338,687, fill='green')
      desenhaTabela(tabela)
      desenhaJogador(root, w)
-     #dados = jogar_Dados()
-     #print("dados", dados)
-     dic = mostrarOpcoes(tabela)
-     criaOpcoes(dic,tabela)
+     #img = PhotoImage(file='dado_1.png')
+     #w.create_image(250, 250, image=img)
+     jogaJogador()
      root.mainloop()
      return
 
