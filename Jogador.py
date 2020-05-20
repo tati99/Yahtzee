@@ -25,7 +25,7 @@ def escolherNome():
 
 def jogaJogador():
     tabela = criaJogador()
-    criaOpcoes(tabela)
+    criaOpcoes(tabela) 
     
 
 def entrada():

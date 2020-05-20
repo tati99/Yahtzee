@@ -4,6 +4,7 @@ from Interface import *
 from Jogada import *
 from Pontuacao import *
 from Jogador import *
+import random
 
 escolherNome()
 root = window2()

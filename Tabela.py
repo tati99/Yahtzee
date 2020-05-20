@@ -80,7 +80,7 @@ def criaOpcoes(tabela):
             sp[j] = -1
          h += 39
          j += 1
-   return
+   return 
 
 def buttonClick(event):
    global but
@@ -111,15 +111,8 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
-   #mostrarOpcoes(dic_atu)
-   #dic2 = mostrarOpcoes(dic_atu)
    criaOpcoes(dic_atu)
-   '''
-   l = jogar_Dados()
-   print(l)
-   dic2 = mostrarOpcoes(l, dic_atu)
-   criaOpcoes(dic2,dic)
-   '''
+
 def preencheTabela(v, s):
    dic[v] = int(s)
    return dic

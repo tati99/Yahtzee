@@ -8,6 +8,7 @@ __all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcular
 root = window2()
 w = confCanvas2()
 
+
 def window3():
     global root
     return root
@@ -107,7 +108,8 @@ def calcularSmallStraight(l):
                     return 30
     return 0
 
-def calcularLargeStraight(lista_dados):
+def calcularLargeStraight(l):
+    lista_dados = l.copy()
     lista_dados.sort()
     if lista_dados[0] == 1:
         if lista_dados[1] == 2:
@@ -158,7 +160,6 @@ def somaColuna(d):
 
 def mostrarOpcoes(dic):
     l = jogar_Dados()
-    print(l)
     d = dict()
     d = dic.copy()
     if d['ones'] == None:
@@ -220,4 +221,5 @@ def mostrarOpcoes(dic):
     else:
         d['bonus yahtzee'] = -1  
     return d
+
     
