@@ -6,6 +6,9 @@ __all__ = ['desenhaJogador', 'criaJogador', 'escolherNome', 'jogaJogador']
 jogador = []
 e1 = 0
 s = 0
+root = window4()
+w = confCanvas4()
+
 def escolherNome():
     global e1
     master = Tk()
@@ -23,6 +26,7 @@ def escolherNome():
 def jogaJogador():
     tabela = criaJogador()
     criaOpcoes(tabela)
+    
 
 def entrada():
     global e1
@@ -53,8 +57,9 @@ def criaJogador():
      }
     return tabela
 
-def desenhaJogador(root, w):
+def desenhaJogador():
     global s
+    global w
     h = 50
     i = 0
     w.create_rectangle(681, 15, 750, 674, fill='white')

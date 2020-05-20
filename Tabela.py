@@ -1,7 +1,7 @@
 from tkinter import *
 from Pontuacao import *
 
-__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'init', 'desenhaPontos']
+__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4']
 
 but = []
 name = []
@@ -12,20 +12,16 @@ root = 0
 w = 0
 cont = 0
 
-def init(window, ca):
-   global root
-   global w
-   root = window
-   w = ca
+root = window3()
+w = confCanvas3()
 
-def desenhaPontos(d):
-   global w 
-   global root
-   k = 0
-   for i in d:
-      if d[i] != None:
-         w.create_text(714, 50+(2*k+1)*19.5, text = str(d[i]))
-      k += 1
+def window4():
+    global root
+    return root
+
+def confCanvas4():
+    global w
+    return w
 
 def desenhaTabela(d):
    global w
@@ -145,7 +141,7 @@ def joker():
       dic_aux2['chance'] = -1
    else:
       dic_aux2[i] = -1
-   criaOpcoes(dic_aux2,dic)
+   criaOpcoes(dic)
    
    
 

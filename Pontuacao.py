@@ -3,7 +3,19 @@ from Jogada import *
 __all__ = ['somaColuna','calcularOnes','calcularTwos','calcularThrees','calcularFours',
             'calcularFives','calcularSixes','calcularSmallStraight','calcularLargeStraight',
 	        'calcularThreeOfAKind','calcularFourOfAKind','calcularChance','calcularFullHouse',
-            'calcularYahtzee','calculaBonusSuperior','calcularBonusYa', 'mostrarOpcoes']
+            'calcularYahtzee','calculaBonusSuperior','calcularBonusYa', 'mostrarOpcoes', 'window3', 'confCanvas3']
+
+root = window2()
+w = confCanvas2()
+
+def window3():
+    global root
+    return root
+
+def confCanvas3():
+    global w
+    return w
+
 
 def calcularOnes(l): 
     soma = 0
