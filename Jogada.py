@@ -26,8 +26,24 @@ def confCanvas2():
 
 dados = [0,0,0,0,0]
 
-img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
+def desenha_dado_iniciais():
+    global img
+    global root
+    global dados
+    img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
            PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
+    botao_dos_dados1 = Button(root, image=img[dados[0] - 1])
+    botao_dos_dados1.place(x=340, y=550)
+    botao_dos_dados2 = Button(root, image=img[dados[1] - 1])
+    botao_dos_dados2.place(x=300, y=550)
+    botao_dos_dados3 = Button(root, image=img[dados[2] - 1])
+    botao_dos_dados3.place(x=260, y=550)
+    botao_dos_dados4 = Button(root, image=img[dados[3] - 1])
+    botao_dos_dados4.place(x=220, y=550)
+    botao_dos_dados5 = Button(root, image=img[dados[4] - 1])
+    botao_dos_dados5.place(x=180, y=550)
+    return
+
 
 def jogar_Dados():
     global dados
@@ -35,16 +51,7 @@ def jogar_Dados():
     global w
     for i, k in enumerate(dados):
         dados[i] = random.randint(1, 6)
-    print('Verificacao lista de dados: {}'.format(dados))
-    desenha_dado_iniciais()
+    Botao_JogarDados = Button(root, width=15, height=1, text='Jogar Dados', font='algerian', command=desenha_dado_iniciais)
+    Botao_JogarDados.pack()
     return dados
-
-def desenha_dado_iniciais():
-    global img
-    global w
-    x = 180
-    for el in dados:
-        w.create_image(x, 600, anchor=NW, image=img[el - 1])
-        x = x + 40
-    return
 
