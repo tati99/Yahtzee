@@ -33,19 +33,18 @@ def jogar_Dados():
     global dados
     global root
     global w
-    global img
     for i, k in enumerate(dados):
         dados[i] = random.randint(1, 6)
     print('Verificacao lista de dados: {}'.format(dados))
-    x = 30
-    for el in dados:
-        w.create_image(x, 100, anchor=NW, image=img[el-1])
-        x = x + 40
+    desenha_dado_iniciais()
     return dados
 
-
-
-
-
-
+def desenha_dado_iniciais():
+    global img
+    global w
+    x = 180
+    for el in dados:
+        w.create_image(x, 600, anchor=NW, image=img[el - 1])
+        x = x + 40
+    return
 
