@@ -13,8 +13,10 @@ def confCanvas():
     global root
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
-    w = Canvas(root, width=screen_width, height=screen_height, bg='white')
+    w = Canvas(root, width=920, height=700, bg='white')
+    button_quit = Button(root, padx=10, pady=10, text="Sair do Jogo", font='algerian', command=root.quit)
     w.pack()
+    button_quit.pack()
     return w
 
 '''
