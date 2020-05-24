@@ -1,6 +1,7 @@
 import random
 from tkinter import *
 from Interface import *
+from Tabela import *
 
 __all__ = ['jogar_Dados', 'window2', 'confCanvas2']
 
@@ -10,8 +11,19 @@ def soma_Dados():
 def proximo_Jogador():
 def manter_Dados():
 '''
+
 root = window()
 w = confCanvas()
+
+x_mouse = 0
+y_mouse = 0
+
+dados = [0,0,0,0,0]
+dadosMantidos = [0,0,0,0,0]
+jogadasFeitas = 0
+
+img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
+           PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
 
 def window2():
     global root
@@ -21,39 +33,52 @@ def confCanvas2():
     global w
     return w
 
-dados = [0,0,0,0,0]
-'''
+def callback(event):
+    global dadosMantidos
+    global x_mouse
+    global y_mouse
+    
+    x_mouse = event.x
+    y_mouse = event.y
+    
+    if x_mouse > 180 and x_mouse < 212 and y_mouse>600 and y_mouse<632:
+        if dadosMantidos[0] == 0:
+            dadosMantidos[0] = 1
+        else:
+            dadosMantidos[0] = 0
+    
+    if x_mouse > 220 and x_mouse < 252 and y_mouse>600 and y_mouse<632:
+        if dadosMantidos[1] == 0:
+            dadosMantidos[1] = 1
+        else:
+            dadosMantidos[1] = 0
+    
+    if x_mouse > 260 and x_mouse < 292 and y_mouse>600 and y_mouse<632:
+        if dadosMantidos[2] == 0:
+            dadosMantidos[2] = 1
+        else:
+            dadosMantidos[2] = 0
+    
+    if x_mouse > 300 and x_mouse < 332 and y_mouse>600 and y_mouse<632:
+        if dadosMantidos[3] == 0:
+            dadosMantidos[3] = 1
+        else:
+            dadosMantidos[3] = 0
+    
+    if x_mouse > 340 and x_mouse < 372 and y_mouse>600 and y_mouse<632:
+        if dadosMantidos[4] == 0:
+            dadosMantidos[4] = 1
+        else:
+            dadosMantidos[4] = 0
+        
+    print("Coordenadas: ", event.x, event.y, "\n")
+
+
+
 def desenha_dado_iniciais():
     global img
     global root
     global dados
-    img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
-           PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
-    botao_dos_dados1 = Button(root, image=img[dados[0] - 1])
-    botao_dos_dados1.place(x=340, y=550)
-    botao_dos_dados2 = Button(root, image=img[dados[1] - 1])
-    botao_dos_dados2.place(x=300, y=550)
-    botao_dos_dados3 = Button(root, image=img[dados[2] - 1])
-    botao_dos_dados3.place(x=260, y=550)
-    botao_dos_dados4 = Button(root, image=img[dados[3] - 1])
-    botao_dos_dados4.place(x=220, y=550)
-    botao_dos_dados5 = Button(root, image=img[dados[4] - 1])
-    botao_dos_dados5.place(x=180, y=550)
-    return
-'''
-img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
-           PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
-def desenha_dado_iniciais():
-    global img
-    global root
-    global dados
-    '''
-    dado1 = Label(root, image=img[dados[0] - 1]).pack(side=LEFT)
-    dado2 = Label(root, image=img[dados[1] - 1]).pack(side=LEFT)
-    dado3 = Label(root, image=img[dados[2] - 1]).pack(side=LEFT)
-    dado4 = Label(root, image=img[dados[3] - 1]).pack(side=LEFT)
-    dado5 = Label(root, image=img[dados[4] - 1]).pack(side=LEFT)
-    '''
     global w
     x = 180
     for el in dados:
@@ -61,11 +86,34 @@ def desenha_dado_iniciais():
         x = x + 40
     return
 
+
+def manterDados():
+    global dados
+    global dadosMantidos
+    global jogadasFeitas
+    if jogadasFeitas < 3:
+        for i, k in enumerate(dados):
+            if dadosMantidos[i] == 1:
+                dados[i] = random.randint(1, 6)
+        desenha_dado_iniciais()
+        jogadasFeitas += 1
+    else:
+        print("Numero de jogadas maximas atingido")
+    print(dadosMantidos)
+    dadosMantidos = [0,0,0,0,0]
+    return 
+    
 def jogar_Dados():
     global dados
     global root
     global w
+    global jogadasFeitas
+    
+    jogadasFeitas = 0
     for i, k in enumerate(dados):
         dados[i] = random.randint(1, 6)
     desenha_dado_iniciais()
+    b1 = Button(root,text='Manter Dados',command=manterDados)
+    b1.place(x = 30, y = 30)
+    w.bind("<Button 1>", callback)
     return dados
