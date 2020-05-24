@@ -22,7 +22,6 @@ def confCanvas2():
     return w
 
 dados = [0,0,0,0,0]
-
 '''
 def desenha_dado_iniciais():
     global img
@@ -42,7 +41,6 @@ def desenha_dado_iniciais():
     botao_dos_dados5.place(x=180, y=550)
     return
 '''
-
 def desenha_dado_iniciais():
     global img
     global root
@@ -57,13 +55,11 @@ def desenha_dado_iniciais():
     return
 
 
-
 def jogar_Dados():
     global dados
     global root
     global w
     for i, k in enumerate(dados):
         dados[i] = random.randint(1, 6)
-    Botao_JogarDados = Button(root, width=15, height=1, text='Jogar Dados', font='algerian', command=desenha_dado_iniciais)
-    Botao_JogarDados.pack()
+    desenha_dado_iniciais()
     return dados
