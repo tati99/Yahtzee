@@ -41,19 +41,25 @@ def desenha_dado_iniciais():
     botao_dos_dados5.place(x=180, y=550)
     return
 '''
+img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
+           PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
 def desenha_dado_iniciais():
     global img
     global root
     global dados
-    img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
-           PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
+    '''
     dado1 = Label(root, image=img[dados[0] - 1]).pack(side=LEFT)
     dado2 = Label(root, image=img[dados[1] - 1]).pack(side=LEFT)
     dado3 = Label(root, image=img[dados[2] - 1]).pack(side=LEFT)
     dado4 = Label(root, image=img[dados[3] - 1]).pack(side=LEFT)
     dado5 = Label(root, image=img[dados[4] - 1]).pack(side=LEFT)
+    '''
+    global w
+    x = 180
+    for el in dados:
+        w.create_image(x, 600, anchor=NW, image=img[el - 1])
+        x = x + 40
     return
-
 
 def jogar_Dados():
     global dados
