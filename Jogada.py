@@ -21,8 +21,6 @@ y_mouse = 0
 dados = [0,0,0,0,0]
 dadosMantidos = [0,0,0,0,0]
 
-jogadasFeitas = 0
-
 img = [PhotoImage(file="dado_1.png"), PhotoImage(file="dado_2.png"), PhotoImage(file="dado_3.png"),
            PhotoImage(file="dado_4.png"), PhotoImage(file="dado_5.png"), PhotoImage(file="dado_6.png")]
 botaoFoto = PhotoImage(file="botao.png")
@@ -39,7 +37,6 @@ def callback(event):
     global dadosMantidos
     global x_mouse
     global y_mouse
-    global jogadasFeitas
     
     x_mouse = event.x
     y_mouse = event.y
@@ -75,15 +72,12 @@ def callback(event):
             dadosMantidos[4] = 0
 
     if x_mouse > 240 and x_mouse < 320 and y_mouse>600 and y_mouse<630:
-        if jogadasFeitas < 3:
+        if tabelaArq.jogadasFeitas < 3:
             jogar_Dados()
-            tabelaArq.teste4()
-            controleRodadas()
+            tabelaArq.atualizaDpsDeManter()
         else:
-            print("Nao da")
-    else:
-        jogadasFeitas = 0
-
+            print("Numero de jogadas maximo atingido, favor escolha uma pontuacao.")
+        controleRodadas()
 
     print("Coordenadas: ", event.x, event.y, "\n")
 
@@ -119,10 +113,8 @@ def manterDados():
 
 def controleRodadas():
     global dadosMantidos
-    global jogadasFeitas
     
     dadosMantidos = [0,0,0,0,0]
-    jogadasFeitas += 1
     return
 
 def jogar_Dados():

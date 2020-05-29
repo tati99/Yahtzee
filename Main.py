@@ -7,7 +7,7 @@ from Jogador import *
 import random
 
 escolherNome()
-root = window2()
+root = window2() 
 w = confCanvas2()
 root.title("Yahtzee")
 

@@ -1,7 +1,7 @@
 from tkinter import *
 from Pontuacao import *
 
-__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4', 'teste4']
+__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4', 'atualizaDpsDeManter']
 
 but = []
 name = []
@@ -11,6 +11,10 @@ dic_aux = dict()
 root = 0
 w = 0
 cont = 0
+
+jogadasFeitas = 0
+
+teste = 0
 
 
 root = window3()
@@ -55,7 +59,6 @@ def criaOpcoes(tabela):
    dic = tabela.copy()
    d = mostrarOpcoes(tabela)
    dic_aux = d.copy()
-   dic_f = dict()
    h = 58
    z = 0
    j = 0
@@ -96,19 +99,20 @@ def criaOpcoes(tabela):
          j += 1
    return 
 
-def teste4():
+def atualizaDpsDeManter():
    global but
-   global name
-   global dic_aux
-   global sp
    global dic
-   global w
-   global cont
+   
+   global jogadasFeitas
+   
    i = 0
    
    while (i < len(but)):
         but[i].destroy()
         i += 1
+        
+   jogadasFeitas += 1
+   print(jogadasFeitas)
    criaOpcoes(dic)
     
 def buttonClick(event):
@@ -119,6 +123,8 @@ def buttonClick(event):
    global dic
    global w
    global cont
+   global jogadasFeitas
+   global teste
    j = 0
    i = 0
    k = 0
@@ -140,6 +146,8 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
+   jogadasFeitas = 0
+   teste = 1
    criaOpcoes(dic_atu)
 
 def preencheTabela(v, s):
@@ -163,7 +171,7 @@ def joker():
       dic_aux2['chance'] = -1
    else:
       dic_aux2[i] = -1
-   criaOpcoes(dic_aux2)
+   criaOpcoes(dic)
    
    
 

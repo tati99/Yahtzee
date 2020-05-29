@@ -3,6 +3,7 @@ from Tabela import *
 
 __all__ = ['desenhaJogador', 'criaJogador', 'escolherNome', 'jogaJogador']
 
+
 jogador = []
 e1 = 0
 s = 0
@@ -42,7 +43,6 @@ def jogaJogador():
     desenhaTabela(tabela)
     desenhaJogador()
     criaOpcoes(tabela) 
-    
 
 def entrada():
     global e1
