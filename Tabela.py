@@ -1,7 +1,7 @@
 from tkinter import *
 from Pontuacao import *
 
-__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4']
+__all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4', 'atualizaDpsDeManter']
 
 but = []
 name = []
@@ -11,6 +11,9 @@ dic_aux = dict()
 root = 0
 w = 0
 cont = 0
+
+jogadasFeitas = 0
+
 
 root = window3()
 w = confCanvas3()
@@ -24,22 +27,23 @@ def confCanvas4():
     return w
 
 def desenhaTabela(d):
-   global w
-   global root
-   i = 0
-   h = 50
-   n = 0
-   w.create_rectangle(600, 50, 681, 674, fill='white')
-   while(i < 17):
-      w.create_line(600, h, 681, h)
-      h += 39
-      i += 1
-   for i in d:
-      s = i
-      s = s.capitalize()
-      w.create_text(640, 50+(2*n+1)*19.5, text = s)
-      n += 1
-   return 
+    global w
+    global root
+    i = 0
+    h = 50
+    n = 0
+    w.create_rectangle(600, 50, 681, 674, fill='white')
+    while(i < 17):
+        w.create_line(600, h, 681, h)
+        h += 39
+        i += 1
+    for i in d:
+        s = i
+        s = s.capitalize()
+        w.create_text(640, 50+(2*n+1)*19.5, text = s)
+        n += 1
+    return 
+
 
 def criaOpcoes(tabela):
    global but
@@ -82,6 +86,22 @@ def criaOpcoes(tabela):
          j += 1
    return 
 
+def atualizaDpsDeManter():
+   global but
+   global dic
+   
+   global jogadasFeitas
+   
+   i = 0
+   
+   while (i < len(but)):
+        but[i].destroy()
+        i += 1
+        
+   jogadasFeitas += 1
+   print(jogadasFeitas)
+   criaOpcoes(dic)
+    
 def buttonClick(event):
    global but
    global name
@@ -90,6 +110,7 @@ def buttonClick(event):
    global dic
    global w
    global cont
+   global jogadasFeitas
    j = 0
    i = 0
    k = 0
@@ -111,6 +132,8 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
+   jogadasFeitas = 0
+   print(jogadasFeitas)
    criaOpcoes(dic_atu)
 
 def preencheTabela(v, s):
