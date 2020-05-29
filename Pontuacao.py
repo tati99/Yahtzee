@@ -147,6 +147,8 @@ def calculaBonusSuperior(dic):
         dic['bonus superior'] = 35
     else:
         dic['bonus superior'] = 0
+    if dic['bonus yahtzee'] == None:
+        dic['bonus yahtzee'] = 0
     return dic
 
 def somaColuna(d):

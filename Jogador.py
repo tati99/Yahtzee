@@ -8,23 +8,39 @@ e1 = 0
 s = 0
 root = window4()
 w = confCanvas4()
+b1 = 0
+add = 0
+e = 0
 
 def escolherNome():
     global e1
-    master = Tk()
-    e = Label(master, text="Name")
+    global root
+    global w
+    global b1
+    global add
+    global e
+    e = Label(root, text="Name", bg='white')
     e.place(x=50,y=100)
-    e1 = Entry(master)
+    e1 = Entry(root)
     e1.place(x=100,y=100)
-    b1 = Button(master,text='Play',command=master.quit)
+    b1 = Button(root,text='Play',command=jogaJogador)
     b1.place(x=100,y=130)
-    add = Button(master,text='Add',command=entrada)
+    add = Button(root,text='Add',command=entrada)
     add.place(x=240,y=97)
-    master.mainloop()
     return
 
 def jogaJogador():
+    global b1
+    global e1
+    global add
+    b1.destroy()
+    e1.destroy()
+    add.destroy()
+    e.destroy()
     tabela = criaJogador()
+    w.create_rectangle(20,13,1338,687, fill='green')
+    desenhaTabela(tabela)
+    desenhaJogador()
     criaOpcoes(tabela) 
     
 

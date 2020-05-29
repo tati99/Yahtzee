@@ -14,11 +14,6 @@ root.title("Yahtzee")
 def main():
      global w
      global root
-     w.create_rectangle(20,13,1338,687, fill='green')
-     tabela = criaJogador()
-     desenhaTabela(tabela)
-     desenhaJogador()
-     jogaJogador()
      root.mainloop()
      return
 

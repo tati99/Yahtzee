@@ -16,7 +16,6 @@ def confCanvas():
     button_quit = Button(root, text="Sair do Jogo", font='algerian', command=root.quit)
     w.pack()
     button_quit.place(x=1200, y=635)
-    #button_quit.pack()
     return w
 
 '''
