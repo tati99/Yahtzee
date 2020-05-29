@@ -14,6 +14,8 @@ cont = 0
 
 jogadasFeitas = 0
 
+teste = 0
+
 
 root = window3()
 w = confCanvas3()
@@ -111,6 +113,7 @@ def buttonClick(event):
    global w
    global cont
    global jogadasFeitas
+   global teste
    j = 0
    i = 0
    k = 0
@@ -133,7 +136,7 @@ def buttonClick(event):
    if (s=='100' or s =='200' or s=='300'):
       joker()
    jogadasFeitas = 0
-   print(jogadasFeitas)
+   teste = 1
    criaOpcoes(dic_atu)
 
 def preencheTabela(v, s):

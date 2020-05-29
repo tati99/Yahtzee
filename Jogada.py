@@ -75,10 +75,9 @@ def callback(event):
         if tabelaArq.jogadasFeitas < 3:
             jogar_Dados()
             tabelaArq.atualizaDpsDeManter()
-            controleRodadas()
         else:
             print("Numero de jogadas maximo atingido, favor escolha uma pontuacao.")
-
+        controleRodadas()
 
     print("Coordenadas: ", event.x, event.y, "\n")
 
