@@ -12,6 +12,7 @@ w = confCanvas4()
 b1 = 0
 add = 0
 e = 0
+s = list()
 
 def escolherNome():
     global e1
@@ -42,15 +43,15 @@ def jogaJogador():
     w.create_rectangle(20,13,1338,687, fill='green')
     desenhaTabela(tabela)
     desenhaJogador()
-    criaOpcoes(tabela) 
+    criaOpcoes(tabela)
+
 
 def entrada():
     global e1
     global jogador
     global s
-    s = e1.get()
+    s.append(e1.get().upper())
     s = s[0:10]
-    s = s.upper()
 
 def criaJogador():
     tabela = {
@@ -78,10 +79,10 @@ def desenhaJogador():
     global w
     h = 50
     i = 0
-    w.create_rectangle(681, 15, 750, 674, fill='white')
-    w.create_text(716,35,text=s)
-    while(i < 16):
-        w.create_line(681, h, 750, h)
+    for contador in range(0,len(s)):
+        w.create_rectangle(681+69*contador, 15, 750+69*contador, 674, fill='white')
+        w.create_text(716+69*contador,35,text=s[contador])
+    for i in range(16):
+        w.create_line(681, h, 680+69*len(s), h)
         h += 39
-        i += 1
     return 0
