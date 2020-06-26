@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import filedialog
 from Pontuacao import *
 
 __all__ = ['desenhaTabela', 'preencheTabela', 'criaOpcoes', 'window4', 'confCanvas4', 'atualizaDpsDeManter']
@@ -45,6 +46,19 @@ def desenhaTabela(d):
         n += 1
     return 
 
+def save_file():
+    global dic
+    content = list()
+    file_name = filedialog.asksaveasfilename(defaultextension = '.txt')
+
+    f = open(file_name, 'w')
+    if f is None:
+        return
+    for i in ld:
+        f.write(str(i))
+        f.write('\n')
+    f.close()
+    return
 
 def criaOpcoes(tabela):
    global but
@@ -71,6 +85,10 @@ def criaOpcoes(tabela):
    j = 0
    k = 0
    partida += 1
+
+   b2 = Button(root, text="Save as", command = save_file)
+   b2.place(x = 25, y = 20)
+   
    for i in d:
       if (d[i]!=0 and d[i]!=-1 and d[i]!=None):
          z += 1
