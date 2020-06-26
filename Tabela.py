@@ -102,17 +102,20 @@ def criaOpcoes(tabela):
 def atualizaDpsDeManter():
    global but
    global dic
-   
    global jogadasFeitas
-   
    i = 0
-   
    while (i < len(but)):
         but[i].destroy()
         i += 1
-        
    jogadasFeitas += 1
-   print(jogadasFeitas)
+   if jogadasFeitas == 1:
+      w.create_text(290, 650, fill="white", font='algerian', text="Você possui 2 jogadas disponível !", tag="texto_2jogadas")
+   if jogadasFeitas == 2:
+      w.delete("texto_2jogadas")
+      w.create_text(290, 650, fill="white", font='algerian', text="Você possui 1 jogada disponível !", tag="texto_1jogadas")
+   if jogadasFeitas == 3:
+      w.delete("texto_1jogadas")
+      w.create_text(290, 650, fill="white", font='algerian', text="Você não possui jogadas disponíveis !")
    criaOpcoes(dic)
     
 def buttonClick(event):
