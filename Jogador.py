@@ -13,6 +13,7 @@ b1 = 0
 add = 0
 e = 0
 s = list()
+list_dict = list()
 
 def escolherNome():
     global e1
@@ -35,6 +36,7 @@ def jogaJogador():
     global b1
     global e1
     global add
+    k = 0
     b1.destroy()
     e1.destroy()
     add.destroy()
@@ -43,7 +45,11 @@ def jogaJogador():
     w.create_rectangle(20,13,1338,687, fill='green')
     desenhaTabela(tabela)
     desenhaJogador()
-    criaOpcoes(tabela)
+    size  = len(s)
+    while (k < size):
+        list_dict.append(criaJogador())
+        k += 1
+    criaOpcoes(list_dict)
 
 
 def entrada():

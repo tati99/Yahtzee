@@ -11,12 +11,11 @@ dic_aux = dict()
 root = 0
 w = 0
 cont = 0
-
+ld = list()
 jogadasFeitas = 0
-
+partida = 0
 teste = 0
-
-
+check = False
 root = window3()
 w = confCanvas3()
 
@@ -55,22 +54,31 @@ def criaOpcoes(tabela):
    global sp
    global root 
    global w
+   global ld
+   global partida
+   global check
+   ld = tabela.copy()
    sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-   dic = tabela.copy()
-   d = mostrarOpcoes(tabela)
+   if (check == True):
+      partida -= 1
+   if (partida == (len(ld))):
+      partida = 0
+   dic = ld[partida].copy()
+   d = mostrarOpcoes(dic)
    dic_aux = d.copy()
    h = 58
    z = 0
    j = 0
    k = 0
+   partida += 1
    for i in d:
       if (d[i]!=0 and d[i]!=-1 and d[i]!=None):
          z += 1
-   for i in tabela:
-      if tabela[i] == None:
+   for i in dic:
+      if dic[i] == None:
          k += 1
    if k == 3:
-      dic_f = somaColuna(tabela)
+      dic_f = somaColuna(ld[partida-1])
       w.create_text(714, 50+(2*6+1)*19.5, text = str(dic_f['bonus superior']))
       w.create_text(714, 50+(2*15+1)*19.5, text = str(dic_f['total']))
       if dic_f['bonus yahtzee'] == 0:
@@ -80,7 +88,7 @@ def criaOpcoes(tabela):
          if(d[i]!=-1 and d[i]!=None and d[i]!=0):
             b = Button(root, width=5, height=1, text=str(d[i]), fg='red', bg='white',command= buttonClick)
             but.append(b)
-            b.place(x=692, y=h)
+            b.place(x=692+70*(partida-1), y=h)
             b.bind("<Button-1>", buttonClick)
             name.append(i)
             sp[j] = -1
@@ -91,7 +99,7 @@ def criaOpcoes(tabela):
          if(d[i]!=-1 and d[i]!=None):
             b = Button(root, width=5, height=1, text=str(d[i]), fg='red', bg='white', command= buttonClick)
             but.append(b)
-            b.place(x=692, y=h)
+            b.place(x=692+70*(partida-1), y=h)
             b.bind("<Button-1>", buttonClick)
             name.append(i)
             sp[j] = -1
@@ -103,6 +111,9 @@ def atualizaDpsDeManter():
    global but
    global dic
    global jogadasFeitas
+   global ld
+   global partida
+   global check
    i = 0
    while (i < len(but)):
         but[i].destroy()
@@ -116,7 +127,9 @@ def atualizaDpsDeManter():
    if jogadasFeitas == 3:
       w.delete("texto_1jogadas")
       w.create_text(290, 650, fill="white", font='algerian', text="Você não possui jogadas disponíveis !")
-   criaOpcoes(dic)
+   check = True 
+   ld[partida-1] = dic.copy()
+   criaOpcoes(ld)
     
 def buttonClick(event):
    global but
@@ -128,6 +141,10 @@ def buttonClick(event):
    global cont
    global jogadasFeitas
    global teste
+   global ld
+   global partida
+   global check
+   check = False
    j = 0
    i = 0
    k = 0
@@ -145,13 +162,14 @@ def buttonClick(event):
       if (i == name[p]):
          break
       k += 1
-   w.create_text(714, 50+(2*k+1)*19.5, text = s)
+   w.create_text(714+70*(partida-1), 50+(2*k+1)*19.5, text = s)
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
    jogadasFeitas = 0
    teste = 1
-   criaOpcoes(dic_atu)
+   ld[partida-1] = dic_atu.copy()
+   criaOpcoes(ld)
 
 def preencheTabela(v, s):
    dic[v] = int(s)
@@ -159,6 +177,8 @@ def preencheTabela(v, s):
 
 def joker():
    global sp
+   global partida
+   ld_aux = list()
    dic_aux2 = dict()
    dic_aux2 = dic_aux.copy()
    dic_aux2['bonus yahtzee'] = -1
@@ -174,7 +194,8 @@ def joker():
       dic_aux2['chance'] = -1
    else:
       dic_aux2[i] = -1
-   criaOpcoes(dic)
+   ld_aux[partida-1] = dic_aux2.copy()
+   criaOpcoes(ld_aux)
    
    
 
