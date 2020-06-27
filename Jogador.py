@@ -18,6 +18,8 @@ add = 0
 e = 0
 s = list()
 list_dict = list()
+Imagem_Inicial = PhotoImage(file='ImagemInicial.png')
+w.create_image(800, 250, anchor=NW, image=Imagem_Inicial, tag="Imagem_Inicial_Jogo")
 
 def escolherNome():
     global e1
@@ -28,15 +30,15 @@ def escolherNome():
     global add
     global e
     e = Label(root, text="Name", bg='white')
-    e.place(x=50,y=100)
+    e.place(x=800,y=460)
     e1 = Entry(root)
-    e1.place(x=100,y=100)
+    e1.place(x=850,y=460)
     b1 = Button(root,text='Jogar',command=jogaJogador)
-    b1.place(x=100,y=130)
+    b1.place(x=895,y=490)
     add = Button(root,text='Adicionar',command=entrada)
-    add.place(x=240,y=97)
+    add.place(x=990,y=463)
     b2 = Button(root, text="Carregar jogo",command=carregarJogo)
-    b2.place(x = 240, y = 150)
+    b2.place(x = 875, y = 540)
     return
 
 def carregarJogo():
@@ -85,7 +87,7 @@ def jogaJogador():
     global add
     
     if len(s) < 2:
-        w.create_text(100, 200, text= 'Voce precisa de 2 jogadores.', tag = 'minJogadores')
+        w.create_text(920, 600, text='Voce precisa de 2 jogadores para Jogar.', tag='minJogadores')
         return
     k = 0
     b1.destroy()
@@ -114,7 +116,7 @@ def entrada():
         s.append(e1.get().upper())
         s = s[0:10]
     else:
-        w.create_text(150, 250, text= 'Você deve jogar com no máximo 6 jogadores.')
+        w.create_text(920, 600, text='Você deve jogar com no máximo 6 jogadores.')
 
 def criaJogador():
     tabela = {
