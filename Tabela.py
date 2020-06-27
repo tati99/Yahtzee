@@ -19,6 +19,7 @@ teste = 0
 check = False
 root = window3()
 w = confCanvas3()
+checkJoker = False
 
 def window4():
     global root
@@ -71,12 +72,15 @@ def criaOpcoes(tabela):
    global ld
    global partida
    global check
+   global checkJoker
    ld = tabela.copy()
    sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
    if (check == True):
       partida -= 1
    if (partida == (len(ld))):
       partida = 0
+   if (checkJoker==True):
+      partida -= 1
    dic = ld[partida].copy()
    d = mostrarOpcoes(dic)
    dic_aux = d.copy()
@@ -164,6 +168,7 @@ def buttonClick(event):
    global ld
    global partida
    global check
+   global checkJoker
    check = False
    j = 0
    i = 0
@@ -186,6 +191,7 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
+   checkJoker = False
    w.delete("texto_1jogadas")
    w.delete("sem_jogadas")
    jogadasFeitas = 0
@@ -200,7 +206,9 @@ def preencheTabela(v, s):
 def joker():
    global sp
    global partida
-   ld_aux = list()
+   global dic_aux
+   global checkJoker
+   ld_aux = [0,0,0,0,0,0]
    dic_aux2 = dict()
    dic_aux2 = dic_aux.copy()
    dic_aux2['bonus yahtzee'] = -1
@@ -216,6 +224,8 @@ def joker():
       dic_aux2['chance'] = -1
    else:
       dic_aux2[i] = -1
+   checkJoker = True
+   ld_aux[partida-1] = dict()
    ld_aux[partida-1] = dic_aux2.copy()
    criaOpcoes(ld_aux)
    
