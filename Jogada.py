@@ -72,7 +72,7 @@ def callback(event):
             dadosMantidos[4] = 0
 
     if x_mouse > 240 and x_mouse < 320 and y_mouse>600 and y_mouse<630:
-        if tabelaArq.jogadasFeitas < 3:
+        if tabelaArq.jogadasFeitas < 2:
             jogar_Dados()
             tabelaArq.atualizaDpsDeManter()
         else:
