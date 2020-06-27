@@ -126,28 +126,27 @@ def criaOpcoes(tabela):
    return 
 
 def atualizaDpsDeManter():
-   global but
-   global dic
-   global jogadasFeitas
-   global ld
-   global partida
-   global check
-   i = 0
-   while (i < len(but)):
+    global but
+    global dic
+    global jogadasFeitas
+    global ld
+    global partida
+    global check
+    i = 0
+    while (i < len(but)):
         but[i].destroy()
         i += 1
-   jogadasFeitas += 1
-   if jogadasFeitas == 1:
-      w.create_text(290, 650, fill="white", font='algerian', text="Você possui 2 jogadas disponível !", tag="texto_2jogadas")
-   if jogadasFeitas == 2:
-      w.delete("texto_2jogadas")
-      w.create_text(290, 650, fill="white", font='algerian', text="Você possui 1 jogada disponível !", tag="texto_1jogadas")
-   if jogadasFeitas == 3:
-      w.delete("texto_1jogadas")
-      w.create_text(290, 650, fill="white", font='algerian', text="Você não possui jogadas disponíveis !")
-   check = True 
-   ld[partida-1] = dic.copy()
-   criaOpcoes(ld)
+    jogadasFeitas += 1
+
+    if jogadasFeitas == 1:
+        w.delete("texto_2jogadas")
+        w.create_text(290, 650, fill="white", font='algerian', text="Você possui 1 jogada disponível !", tag="texto_1jogadas")
+    if jogadasFeitas == 2:
+        w.delete("texto_1jogadas")
+        w.create_text(290, 650, fill="white", font='algerian', text="Você nao possui mais jogadas !", tag="sem_jogadas")
+    check = True
+    ld[partida - 1] = dic.copy()
+    criaOpcoes(ld)
     
 def buttonClick(event):
    global but
@@ -184,6 +183,8 @@ def buttonClick(event):
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
+   w.delete("texto_1jogadas")
+   w.delete("sem_jogadas")
    jogadasFeitas = 0
    teste = 1
    ld[partida-1] = dic_atu.copy()
