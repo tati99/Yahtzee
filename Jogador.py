@@ -63,22 +63,29 @@ def carregarJogo():
     for i in range(len(list_dict)):
         s.append('Jogador ' + str(i + 1))
         
-    tabela = criaJogador()
     w.create_rectangle(20,13,1338,687, fill='green')
-    desenhaTabela(tabela)
+    for i in list_dict:
+        desenhaTabela(i)
     desenhaJogador()
         
     criaOpcoes(list_dict)
+
+    for i, el in enumerate(list_dict):
+        for j, valor in enumerate(el.values()):
+            if valor != None:
+                w.create_text(714+70*((i+1)-1), 50+(2*j+1)*19.5, text = str(valor))
     
     return
     
 
 def jogaJogador():
     global b1
+    global b2
     global e1
     global add
     k = 0
     b1.destroy()
+    b2.destroy()
     e1.destroy()
     add.destroy()
     e.destroy()
