@@ -20,6 +20,7 @@ check = False
 root = window3()
 w = confCanvas3()
 checkJoker = False
+dic_ant = dict()
 
 def window4():
     global root
@@ -73,6 +74,9 @@ def criaOpcoes(tabela):
    global partida
    global check
    global checkJoker
+   global dic_ant
+   if (checkJoker == True):
+      dic_ant = ld[partida-1]
    ld = tabela.copy()
    sp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
    if (check == True):
@@ -82,7 +86,10 @@ def criaOpcoes(tabela):
    if (checkJoker==True):
       partida -= 1
    dic = ld[partida].copy()
-   d = mostrarOpcoes(dic)
+   if (checkJoker==False):
+      d = mostrarOpcoes(dic)
+   else:
+      d = dic
    dic_aux = d.copy()
    h = 58
    z = 0
@@ -200,6 +207,8 @@ def buttonClick(event):
    criaOpcoes(ld)
 
 def preencheTabela(v, s):
+   global dic_ant
+   global checkJoker
    dic[v] = int(s)
    return dic
 
