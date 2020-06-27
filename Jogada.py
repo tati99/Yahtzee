@@ -44,37 +44,52 @@ def callback(event):
     if x_mouse > 180 and x_mouse < 212 and y_mouse>550 and y_mouse<582:
         if dadosMantidos[0] == 0:
             dadosMantidos[0] = 1
+            w.create_rectangle(180, 550, 212, 582, outline = 'black', tag = 'ret1')
         else:
             dadosMantidos[0] = 0
+            w.delete('ret1')
     
     if x_mouse > 220 and x_mouse < 252 and y_mouse>550 and y_mouse<582:
         if dadosMantidos[1] == 0:
             dadosMantidos[1] = 1
+            w.create_rectangle(220, 550, 252, 582, outline = 'black', tag = 'ret2')
         else:
             dadosMantidos[1] = 0
+            w.delete('ret2')
     
     if x_mouse > 260 and x_mouse < 292 and y_mouse>550 and y_mouse<582:
         if dadosMantidos[2] == 0:
             dadosMantidos[2] = 1
+            w.create_rectangle(260, 550, 292, 582, outline = 'black', tag = 'ret3')
         else:
             dadosMantidos[2] = 0
+            w.delete('ret3')
     
     if x_mouse > 300 and x_mouse < 332 and y_mouse>550 and y_mouse<582:
         if dadosMantidos[3] == 0:
             dadosMantidos[3] = 1
+            w.create_rectangle(300, 550, 332, 582, outline = 'black', tag = 'ret4')
         else:
             dadosMantidos[3] = 0
+            w.delete('ret4')
     
     if x_mouse > 340 and x_mouse < 372 and y_mouse>550 and y_mouse<582:
         if dadosMantidos[4] == 0:
             dadosMantidos[4] = 1
+            w.create_rectangle(340, 550, 372, 582, outline = 'black', tag = 'ret5')
         else:
             dadosMantidos[4] = 0
+            w.delete('ret5')
 
     if x_mouse > 240 and x_mouse < 320 and y_mouse>600 and y_mouse<630:
         if tabelaArq.jogadasFeitas < 2:
             jogar_Dados()
             tabelaArq.atualizaDpsDeManter()
+            w.delete('ret1')
+            w.delete('ret2')
+            w.delete('ret3')
+            w.delete('ret4')
+            w.delete('ret5')
         else:
             print("Numero de jogadas maximo atingido, favor escolha uma pontuacao.")
         controleRodadas()

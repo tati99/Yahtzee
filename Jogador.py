@@ -83,6 +83,10 @@ def jogaJogador():
     global b2
     global e1
     global add
+    
+    if len(s) < 2:
+        w.create_text(100, 200, text= 'Voce precisa de 2 jogadores.', tag = 'minJogadores')
+        return
     k = 0
     b1.destroy()
     b2.destroy()
@@ -104,8 +108,13 @@ def entrada():
     global e1
     global jogador
     global s
-    s.append(e1.get().upper())
-    s = s[0:10]
+    
+    w.delete('minJogadores')
+    if len(s) < 6:
+        s.append(e1.get().upper())
+        s = s[0:10]
+    else:
+        w.create_text(150, 250, text= 'Você deve jogar com no máximo 6 jogadores.')
 
 def criaJogador():
     tabela = {

@@ -84,6 +84,7 @@ def criaOpcoes(tabela):
    z = 0
    j = 0
    k = 0
+   t = 0
    partida += 1
 
    b2 = Button(root, text="Save as", command = save_file)
@@ -96,11 +97,13 @@ def criaOpcoes(tabela):
       if dic[i] == None:
          k += 1
    if k == 3:
-      dic_f = somaColuna(ld[partida-1])
-      w.create_text(714, 50+(2*6+1)*19.5, text = str(dic_f['bonus superior']))
-      w.create_text(714, 50+(2*15+1)*19.5, text = str(dic_f['total']))
-      if dic_f['bonus yahtzee'] == 0:
-         w.create_text(714, 50+(2*14+1)*19.5, text = '–')
+      while (t < len(ld)):
+         dic_f = somaColuna(ld[t])
+         w.create_text(714+70*t, 50+(2*6+1)*19.5, text = str(dic_f['bonus superior']))
+         w.create_text(714+70*t, 50+(2*15+1)*19.5, text = str(dic_f['total']))
+         if dic_f['bonus yahtzee'] == 0:
+            w.create_text(714+70*t, 50+(2*14+1)*19.5, text = '–')
+         t += 1
    if (z > 0):
       for i in d:
          if(d[i]!=-1 and d[i]!=None and d[i]!=0):
