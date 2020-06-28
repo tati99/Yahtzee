@@ -81,13 +81,6 @@ def criaOpcoes(tabela):
    global coroa
    global rodada
    global jogadasFeitas
-   if (jogadasFeitas != 0):
-      rodada -= 1
-   if (rodada==14):
-      rodada -= 1
-   w.create_text(300, 40, text = "Rodada " + str(rodada), fill="white", font='algerian', tag="rodada")
-   if (partida == len(ld)-1):
-      rodada += 1
    if (checkJoker == True):
       dic_ant = ld[partida-1]
    ld = tabela.copy()
@@ -96,6 +89,9 @@ def criaOpcoes(tabela):
       partida -= 1
    if (partida == (len(ld))):
       partida = 0
+   if (rodada==14):
+      rodada -= 1
+   w.create_text(300, 40, text = "Rodada " + str(rodada), fill="white", font='algerian', tag="rodada")
    if (checkJoker==True):
       partida -= 1
    dic = ld[partida].copy()
@@ -201,6 +197,7 @@ def buttonClick(event):
    global partida
    global check
    global checkJoker
+   global rodada
    check = False
    j = 0
    i = 0
@@ -229,6 +226,8 @@ def buttonClick(event):
    jogadasFeitas = 0
    teste = 1
    w.delete("rodada")
+   if (partida-1 == (len(ld)-1)):
+      rodada += 1
    ld[partida-1] = dic_atu.copy()
    criaOpcoes(ld)
 
@@ -269,6 +268,8 @@ def reiniciar():
    global b3
    global coroa
    global rodada
+   global partida
+   partida = 0
    rodada = 1
    w.delete("numero")
    w.delete("bonussuperior")
