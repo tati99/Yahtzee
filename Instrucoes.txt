@@ -1,0 +1,40 @@
+1) Página inicial
+
+   a. Adicionar jogadores
+
+      Ao lado de "Nome" digite o nome de um jogador e clique em "Adicionar" para adicioná-lo à 
+      partida. Para adicionar o jogador seguinte é preciso apagar o nome do primeiro jogador, 
+      escrever o nome do segundo no mesmo local e clicar em "Adicionar".
+
+   b. Iniciar o jogo
+
+      Ao clicar em "Jogar" o jogo iniciará. Porém, caso queira jogar com um jogo salvo é 
+      preciso clicar em "Carregar Jogo" e selecionar um arquivo txt do computador com um jogo
+      salvo.
+
+2) Jogo
+
+   a. Jogada
+
+      Quando o turno começa os dados já são jogados automaticamente. Você pode selecionar 
+      uma das pontuações ou jogar novamente. Sua vez acaba ao selecionar uma pontuação.
+
+   b. Seleção de dados
+
+      Ao clicar nas imagens dos dados, você escolhe os dados que quer manter. Assim, quando se
+      aperta "Jogar Dados" serão sorteados os dados que não estiverem selecionados.
+
+   c. Salvar o jogo
+
+      Em "Salvar" é possível salvar a partida em um arquivo txt em qualquer local do computador.
+
+   d. Reiniciar
+
+      Ao final das 13 rodadas, aparecerá o botão "Reiniciar", e ao clicar nele os jogadores 
+      serão direcionados para uma nova partida.
+
+   e. Sair do jogo
+
+      Em qualquer momento é possível clicar em "Sair do Jogo" para fechar a janela.
+
+

@@ -22,6 +22,7 @@ w = confCanvas3()
 checkJoker = False
 dic_ant = dict()
 b3 = 0
+rodada = 1
 coroa = PhotoImage(file="coroa.png")
 def window4():
     global root
@@ -78,6 +79,15 @@ def criaOpcoes(tabela):
    global dic_ant
    global b3
    global coroa
+   global rodada
+   global jogadasFeitas
+   if (jogadasFeitas != 0):
+      rodada -= 1
+   if (rodada==14):
+      rodada -= 1
+   w.create_text(300, 40, text = "Rodada " + str(rodada), fill="white", font='algerian', tag="rodada")
+   if (partida == len(ld)-1):
+      rodada += 1
    if (checkJoker == True):
       dic_ant = ld[partida-1]
    ld = tabela.copy()
@@ -101,7 +111,7 @@ def criaOpcoes(tabela):
    t = 0
    partida += 1
 
-   b2 = Button(root, text="Save as", command = save_file)
+   b2 = Button(root, text="Salvar", command = save_file)
    b2.place(x = 25, y = 20)
    
    for i in d:
@@ -160,6 +170,7 @@ def atualizaDpsDeManter():
     global ld
     global partida
     global check
+    w.delete("rodada")
     i = 0
     while (i < len(but)):
         but[i].destroy()
@@ -217,6 +228,7 @@ def buttonClick(event):
    w.delete("sem_jogadas")
    jogadasFeitas = 0
    teste = 1
+   w.delete("rodada")
    ld[partida-1] = dic_atu.copy()
    criaOpcoes(ld)
 
@@ -256,11 +268,14 @@ def reiniciar():
    global ld
    global b3
    global coroa
+   global rodada
+   rodada = 1
    w.delete("numero")
    w.delete("bonussuperior")
    w.delete("total")
    w.delete("bonusyahtzee")
    w.delete("coroa")
+   w.delete("rodada")
    b3.destroy()
    for i,k in enumerate(ld):
       for j in ld[i]:
