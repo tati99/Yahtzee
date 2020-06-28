@@ -29,7 +29,7 @@ def escolherNome():
     global b2
     global add
     global e
-    e = Label(root, text="Name", bg='white')
+    e = Label(root, text="Nome", bg='white')
     e.place(x=800,y=460)
     e1 = Entry(root)
     e1.place(x=850,y=460)

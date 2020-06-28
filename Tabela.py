@@ -21,7 +21,7 @@ root = window3()
 w = confCanvas3()
 checkJoker = False
 dic_ant = dict()
-
+b3 = 0
 def window4():
     global root
     return root
@@ -75,6 +75,7 @@ def criaOpcoes(tabela):
    global check
    global checkJoker
    global dic_ant
+   global b3
    if (checkJoker == True):
       dic_ant = ld[partida-1]
    ld = tabela.copy()
@@ -110,11 +111,13 @@ def criaOpcoes(tabela):
    if k == 3:
       while (t < len(ld)):
          dic_f = somaColuna(ld[t])
-         w.create_text(714+70*t, 50+(2*6+1)*19.5, text = str(dic_f['bonus superior']))
-         w.create_text(714+70*t, 50+(2*15+1)*19.5, text = str(dic_f['total']))
+         w.create_text(714+70*t, 50+(2*6+1)*19.5, text = str(dic_f['bonus superior']), tag="bonussuperior")
+         w.create_text(714+70*t, 50+(2*15+1)*19.5, text = str(dic_f['total']), tag="total")
          if dic_f['bonus yahtzee'] == 0:
-            w.create_text(714+70*t, 50+(2*14+1)*19.5, text = '–')
+            w.create_text(714+70*t, 50+(2*14+1)*19.5, text = '–',tag="bonusyahtzee")
          t += 1
+      b3 = Button(root, width=7, height=1, text="Reiniciar", fg='black',command= reiniciar)
+      b3.place(x=1258, y=608)
    if (z > 0):
       for i in d:
          if(d[i]!=-1 and d[i]!=None and d[i]!=0):
@@ -194,7 +197,7 @@ def buttonClick(event):
       if (i == name[p]):
          break
       k += 1
-   w.create_text(714+70*(partida-1), 50+(2*k+1)*19.5, text = s)
+   w.create_text(714+70*(partida-1), 50+(2*k+1)*19.5, text = s, tag="numero")
    dic_atu = preencheTabela(name[p], s)
    if (s=='100' or s =='200' or s=='300'):
       joker()
@@ -237,6 +240,23 @@ def joker():
    ld_aux[partida-1] = dict()
    ld_aux[partida-1] = dic_aux2.copy()
    criaOpcoes(ld_aux)
+
+def reiniciar():
+   global ld
+   global b3
+   w.delete("numero")
+   w.delete("bonussuperior")
+   w.delete("total")
+   w.delete("bonusyahtzee")
+   b3.destroy()
+   for i,k in enumerate(ld):
+      for j in ld[i]:
+         ld[i][j] = None
+   criaOpcoes(ld)
+
+
+
+
    
    
 
