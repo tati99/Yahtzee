@@ -22,6 +22,7 @@ w = confCanvas3()
 checkJoker = False
 dic_ant = dict()
 b3 = 0
+coroa = PhotoImage(file="coroa.png")
 def window4():
     global root
     return root
@@ -76,6 +77,7 @@ def criaOpcoes(tabela):
    global checkJoker
    global dic_ant
    global b3
+   global coroa
    if (checkJoker == True):
       dic_ant = ld[partida-1]
    ld = tabela.copy()
@@ -116,6 +118,15 @@ def criaOpcoes(tabela):
          if dic_f['bonus yahtzee'] == 0:
             w.create_text(714+70*t, 50+(2*14+1)*19.5, text = '–',tag="bonusyahtzee")
          t += 1
+      t = 1
+      pos = 0
+      aux3 = ld[0]["total"]
+      while (t < len(ld)):
+         if (ld[t]["total"]>aux3):
+            aux3 = ld[t]["total"]
+            pos += 1
+         t += 1
+      w.create_image(699+69*pos, 5, anchor=NW, image=coroa, tags="coroa")
       b3 = Button(root, width=7, height=1, text="Reiniciar", fg='black',command= reiniciar)
       b3.place(x=1258, y=608)
    if (z > 0):
@@ -244,10 +255,12 @@ def joker():
 def reiniciar():
    global ld
    global b3
+   global coroa
    w.delete("numero")
    w.delete("bonussuperior")
    w.delete("total")
    w.delete("bonusyahtzee")
+   w.delete("coroa")
    b3.destroy()
    for i,k in enumerate(ld):
       for j in ld[i]:
