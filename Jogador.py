@@ -6,7 +6,6 @@ from ast import literal_eval
 
 __all__ = ['desenhaJogador', 'criaJogador', 'escolherNome', 'jogaJogador']
 
-
 jogador = []
 e1 = 0
 s = 0

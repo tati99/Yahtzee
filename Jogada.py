@@ -5,13 +5,6 @@ import Tabela as tabelaArq
 
 __all__ = ['jogar_Dados', 'window2', 'confCanvas2']
 
-'''
-def selecionar_Jogada():
-def soma_Dados():
-def proximo_Jogador():
-def manter_Dados():
-'''
-
 root = window()
 w = confCanvas()
 
@@ -107,25 +100,6 @@ def desenha_dado_iniciais():
         x = x + 40
     return
 
-
-'''
-def manterDados():
-    global dados
-    global dadosMantidos
-    global jogadasFeitas
-    if jogadasFeitas < 3:
-        for i, k in enumerate(dados):
-            if dadosMantidos[i] == 1:
-                dados[i] = random.randint(1, 6)
-        desenha_dado_iniciais()
-        jogadasFeitas += 1
-    else:
-        print("Numero de jogadas maximas atingido")
-    print(dadosMantidos)
-    dadosMantidos = [0,0,0,0,0]
-    return dados
-'''
-
 def controleRodadas():
     global dadosMantidos
     
@@ -144,10 +118,8 @@ def jogar_Dados():
     
     desenha_dado_iniciais()
     
-    ###
     w.create_image(240, 600, anchor=NW, image=botaoFoto)
     w.create_text(280,500,fill="white",font='algerian',text="Clique nos dados que gostaria de manter")
     w.bind("<Button 1>", callback)
-    ###
 
     return dados

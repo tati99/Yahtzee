@@ -18,11 +18,4 @@ def confCanvas():
     button_quit.place(x=1250, y=650)
     return w
 
-'''
-def alterar_Tela():
-
-def arruma_Tabela():
-
-def organizar_Jogadores():
-'''
     
